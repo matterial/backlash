@@ -7,6 +7,6 @@ function backlash() {
 backlash.prototype = (function(context) {
 
 	return {
-
+		
 	};
 })(this);
