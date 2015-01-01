@@ -23,7 +23,6 @@ var backlash = function(value) {
 	}
 }
 backlash.prototype = (function(context) {
-
 	return {
 		setValue: function(value) {
 			this.value = value;
@@ -34,4 +33,6 @@ backlash.prototype = (function(context) {
 	};
 })(this);
 
-module.exports = {creator: backlash, variables: backlashVariables};
+module.exports = function() {
+	return {creator: backlash, variables: backlashVariables};
+}

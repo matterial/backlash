@@ -1,20 +1,46 @@
 var B = backlash;
-var v = backlash.variable;
 
-v.firstName = B("Riten");
-v.lastName = B("Vagadiya");
-v.fullName = v.firstName.concat(v.lastName);
-console.log(v.fullName); //Riten Vagadiya
-v.firstName("Rahul");
-console.log(v.fullName); //Rahul Vagadiya
-var v.age = B(27);
-var v.description = B("The fact is that {{firstName}} is {{age}} years old, and is born in the {{lastName}} family.");
-console.log(v.description); //The fact is that Rahul is 27 years old, and is born in the Vagadiya family.
-v.age(28);
-console.log(v.description); //The fact is that Rahul is 28 years old, and is born in the Vagadiya family.
-v.firstName.$watch(function(val) {
-	console.log(v.description);
-});
-v.age.$watch(v.firstName.$watch);
-v.firstName("Tamku"); //The fact is that Tamku is 28 years old, and is born in the Vagadiya family.
-v.age("0"); //The fact is that Tamku is 0 years old, and is born in the Vagadiya family.
+/**
+ * Initialze the variables
+ */
+var firstName 	= B("firstName"),
+	lastName	= B("lastName"),
+	fullName	= B("fullName"),
+	age			= B("age"),
+	description	= B("description"),
+	fullName	= "";
+
+/**
+ * Set values
+ */
+firstName("Riten");
+lastName("Vagadiya");
+age(27);
+
+/**
+ * Create dependent values
+ */
+fullName("{{firstName}} {{lastName}}");
+console.log(fullName); //Riten Vagadiya
+
+/**
+ * Modify values
+ */
+firstName("Rahul");
+console.log(fullName); //Rahul Vagadiya
+description("The fact is that {{firstName}} is {{age}} years old, and is born in the {{lastName}} family.");
+console.log(description); //The fact is that Rahul is 27 years old, and is born in the Vagadiya family.
+age(28);
+console.log(description); //The fact is that Rahul is 28 years old, and is born in the Vagadiya family.
+
+/**
+ * Setting watch event
+ */
+var customFunction = function(old, new) {
+	var $this = this; //`this` will refer to the changed B object
+	console.log(description);
+};
+firstName.$watch(customFunction);
+age.$watch(customFunction);
+firstName("Tamku"); //The fact is that Tamku is 28 years old, and is born in the Vagadiya family.
+age("0"); //The fact is that Tamku is 0 years old, and is born in the Vagadiya family.
