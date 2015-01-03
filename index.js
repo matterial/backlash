@@ -8,7 +8,7 @@ var returnFn =  function(instance) {
 			return instance.value;
 		instance.setValue(newValue);
 	}
-}
+};
 var backlashVariables = {};
 var backlash = function(value) {
 	var $this = this;
