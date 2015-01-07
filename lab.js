@@ -32,10 +32,10 @@ description("The fact is that {{firstName}} is {{age}} years old, and is born in
 console.log(description()); //The fact is that Rahul is 27 years old, and is born in the Vagadiya family.
 age(28);
 console.log(description()); //The fact is that Rahul is 28 years old, and is born in the Vagadiya family.
-console.log(Backlash.variables.length() + " variables in memory. Now trashing firstName...");
+console.log(Backlash.variables.length() + " variables in memory. Now trashing firstName..."); //6 variables in memory. Now trashing firstName...
 firstName.trash();
-console.log(Backlash.variables.length() + " variables in memory.");
-console.log(description());
+console.log(Backlash.variables.length() + " variables in memory."); //5 variables in memory.
+console.log(description()); //The fact is that {{firstName}} is 28 years old, and is born in the Vagadiya family.
 
 /**
  * Using the variable again should throw an error, we will catch it
