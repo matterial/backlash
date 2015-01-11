@@ -1,4 +1,4 @@
-var Backlash = require("./index")();
+var Backlash = require("./backlash")();
 var B = Backlash.creator;
 
 /**

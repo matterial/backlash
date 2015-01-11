@@ -1,4 +1,4 @@
-var Backlash = require("../index")();
+var Backlash = require("../backlash")();
 var B = Backlash.creator;
 
 /**
@@ -54,7 +54,12 @@ if (!firstName.trashed()) {
 	console.log("Modified firstName");
 } else {
 	console.log("Cannot use firstName anymore");
-}
+}	
+
+/**
+ * Redeclare firstName
+ */
+var firstName 	= B("firstName");
 
 /**
  * Setting watch event
