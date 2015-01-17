@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Backlash Example</title>
+	<script src="./lib/reckon.min.js"></script>
+	<script type="text/javascript" src="./backlash.js"></script>
+</head>
+<body>
+	<p id="content">Printing backlash output:</p>
+	<script type="text/javascript">
+		/**
+		 * Initialize variables
+		 */
+		var firstName = backlash("firstName");
+		var lastName = backlash("lastName");
+		var fullName = backlash("fullName");
+
+		/**
+		 * Assign values
+		 */
+		firstName("John");
+		lastName("Doe");
+		fullName("{{firstName}} {{lastName}}");
+
+		function updateName() {
+			document.getElementById("content").innerHTML += "<br>" + fullName;
+		}
+
+		//write name in dom
+		updateName();
+
+		//change first name
+		firstName("Jane");
+		updateName();
+
+		//change last name
+		lastName("Doh");
+		updateName();
+	</script>
+</body>
+</html>

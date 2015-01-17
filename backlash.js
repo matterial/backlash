@@ -6,7 +6,9 @@
 /**
  * Backlash depends on reckonjs for providing string interpolations (also developed by matterial and MIT licensed)
  */
-var reckon = require("reckonjs");
+if (typeof window == "undefined" ) {
+	var reckon = require("reckonjs");
+}
 
 /**
  * Object to store utility functions for backlash
@@ -167,6 +169,11 @@ backlash.prototype = (function(context) {
  * Interface both the creating function, and the list of all variables for direct usage
  * @return {Object}
  */
-module.exports = function() {
-	return {creator: backlash, variables: bGlobal.backlashVariables};
-};
+if (typeof window !== "undefined" ) {
+	window.backlash = backlash;
+	window.backlashVars = bGlobal.backlashVariables;
+} else {
+	module.exports = function() {
+		return {creator: backlash, variables: bGlobal.backlashVariables};
+	};
+}
