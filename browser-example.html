@@ -24,18 +24,23 @@
 		fullName("{{firstName}} {{lastName}}");
 
 		function updateName() {
-			document.getElementById("content").innerHTML += "<br>" + fullName;
+			document.getElementById("content").innerHTML += "<br>Updated name: " + fullName;
 		}
 
 		//write name in dom
 		updateName();
 
 		//change first name
-		firstName("Jane");
+		firstName("Johannes");
 		updateName();
 
 		//change last name
-		lastName("Doh");
+		lastName("Dough");
+		updateName();
+
+		//change last name
+		firstName("Julia");
+		lastName("Roberts");
 		updateName();
 	</script>
 </body>
