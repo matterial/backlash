@@ -28,7 +28,7 @@ var bGlobal = {
 	 * @return {String}                The final presentable, usable value
 	 */
 	evaluate: function(backlashString) {
-		return backlashString.reckon(this.backlashVariables);
+		return backlashString ? backlashString.reckon(this.backlashVariables) : backlashString;
 	},
 
 	/**
