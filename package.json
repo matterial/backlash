@@ -1,8 +1,8 @@
 {
   "name": "backlash",
   "version": "0.0.1",
-  "description": "Backlash ========",
-  "main": "index.js",
+  "description": "Backlash is a simple utility suite that brings reactive literals into your web apps.",
+  "main": "backlash.js",
   "scripts": {
     "test": "echo \"No tests specified\" && exit 1",
     "start": "npm lab.js"
